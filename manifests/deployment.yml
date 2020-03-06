@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: syprashajavascripttetris 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: syprashajavascripttetris 
+    spec:
+      containers:
+        - name: syprashajavascripttetris 
+          image: sateco.azurecr.io/syprashajavascripttetris
+          ports:
+          - containerPort: 8000
