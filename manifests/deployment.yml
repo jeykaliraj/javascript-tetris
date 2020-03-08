@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
         - name: syprashajavascripttetris 
-          image: sateco.azurecr.io/syprashajavascripttetris
+          image: sateco2.azurecr.io/syprashajavascripttetris
           ports:
           - containerPort: 8000
