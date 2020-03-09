@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: hello
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: sateco2.azurecr.io/syprashajavascripttetris:4
+        image: sateco2.azurecr.io/syprashajavascripttetris:
         resources:
           requests:
             cpu: 100m
