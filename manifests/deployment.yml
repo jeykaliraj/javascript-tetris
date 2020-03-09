@@ -1,26 +1,24 @@
-apiVersion: apps/v1beta2 # for versions before 1.9.0 use apps/v1beta2
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hello-master
-  labels:
-    app: hello
+  name: tetris
 spec:
-  selector:
-    matchLabels:
-      app: hello
   replicas: 2
   template:
     metadata:
       labels:
-        app: hello
+        app: tetris
     spec:
       containers:
-      - name: hello
-        image: sateco2.azurecr.io/syprashajavascripttetris:
+      - image: saiacr123.azurecr.io/app/tetris:1.0 # image in ACR
+        name: tetris
+        # include resources for better scheduling
         resources:
           requests:
             cpu: 100m
-            memory: 100Mi
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
-        - containerPort: 8080
-          name: nodejs-port
+        - containerPort: 8000
