@@ -10,7 +10,7 @@ spec:
         app: tetris
     spec:
       containers:
-      - image: sateco2.azurecr.io/syprashajavascripttetris # image in ACR
+      - image: sateco2.azurecr.io/syprashajavascripttetris: 31 # image in ACR
         name: tetris
         # include resources for better scheduling
         resources:
