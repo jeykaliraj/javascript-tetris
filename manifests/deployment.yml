@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tetris
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: tetris
+    spec:
+      containers:
+      - image: sateco2.azurecr.io/syprashajavascripttetris:latest # image in ACR
+        name: tetris
+        # include resources for better scheduling
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+        ports:
+        - containerPort: 8000
+        
