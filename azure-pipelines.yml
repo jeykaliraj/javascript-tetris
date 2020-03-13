@@ -37,3 +37,18 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: UniversalPackages@0
+      inputs:
+      command: 'download'
+      downloadDirectory: '$(System.DefaultWorkingDirectory)'
+      feedsToUse: 'internal'
+      vstsFeed: '2a80b6d6-1eb7-40a0-a14b-c12c9623e755'
+      vstsFeedPackage: '5ca47941-7bea-483c-8d73-976b8eed1f68'
+      vstsPackageVersion: '19.3.311'
+    - task: CmdLine@2
+      inputs:
+      script: |
+      sudo mv $(System.DefaultWorkingDirectory)/twistcli /usr/bin/twistcli
+      sudo chmod +x /usr/bin/twistcli
+      docker login sateco2.azurecr.io -u f3e3531d-99d6-4458-b1c2-0bf2ef915e3b -p d3ab06c2-0ec7-4f3e-a88a-33da5025360c
+      docker pull sateco2.azurecr.io/testjavaclassic:latest  
